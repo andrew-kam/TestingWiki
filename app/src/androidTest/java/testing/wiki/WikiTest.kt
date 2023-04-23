@@ -14,20 +14,30 @@ class WikiTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun customizeFeedPageAllBoxCheckedTest() {
+    fun testCustomizeFeedPageAllBoxesAreChecked() {
         MainPage()
             .apply {
-                clickButtonSkip()
-                clickButtonMenuMore()
-                clickButtonSettingsInMenuMore()
+                pressButtonSkip()
+                pressButtonMenuMore()
+                pressButtonSettingsInMenuMore()
             }
 
         SettingsPage()
-            .clickButtonCustomizeExploreFeed()
+            .pressButtonCustomizeExploreFeed()
 
         Thread.sleep(5000)
 
         CustomizeFeedPage()
-            .allBoxIsChecked()
+            .checkAllBoxesAreChecked()
+    }
+
+    @Test
+    fun testAllBlocks() {
+        MainPage()
+            .apply {
+                pressButtonSkip()
+                pressButtonMenuMore()
+                pressButtonSettingsInMenuMore()
+            }
     }
 }
