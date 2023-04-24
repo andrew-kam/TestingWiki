@@ -10,11 +10,11 @@ class MainPage : BasePage() {
     private val matcherButtonSettingsInMenuMore = withId(R.id.main_drawer_settings_container)
 
     fun pressButtonSkip() =
-        clickButton(matcherButtonSkip)
+        clickButtonWait(matcherButtonSkip)
 
     fun pressButtonMenuMore() =
-        clickButton(matcherButtonMenuMore)
+        clickButtonWait(matcherButtonMenuMore)
 
     fun pressButtonSettingsInMenuMore() =
-        clickButton(matcherButtonSettingsInMenuMore)
+        clickButtonWait(matcherButtonSettingsInMenuMore)
 }

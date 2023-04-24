@@ -12,10 +12,13 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 class CustomizeFeedPage : BasePage() {
 
     private val matcherCheckBoxes = withId(R.id.feed_content_type_checkbox)
+    private val matcherRecycle = withId(R.id.content_types_recycler)
 
     fun checkAllBoxesAreChecked() {
-
         onView(allOf(matcherCheckBoxes, not(isChecked()), isDisplayed()))
             .check(doesNotExist())
     }
+
+    fun swipeUp() =
+        swipeUpRecycle(matcherRecycle)
 }

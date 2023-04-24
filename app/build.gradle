@@ -204,6 +204,7 @@ dependencies {
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
     implementation 'androidx.work:work-runtime-ktx:2.8.1'
+    implementation 'org.awaitility:awaitility-kotlin:4.2.0'
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
         exclude group: 'org.jetbrains'
