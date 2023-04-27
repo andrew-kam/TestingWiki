@@ -2,44 +2,50 @@ package testing.wiki
 
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
-import org.hamcrest.Matcher
 import androidx.test.espresso.action.ViewActions.click
-import android.view.View
 import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.action.ViewActions.typeText
-import org.awaitility.Awaitility
-import java.util.concurrent.TimeUnit
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.intent.Intents
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
+import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
+import android.view.View
+import org.hamcrest.Matcher
+import org.awaitility.Awaitility
+import java.util.concurrent.TimeUnit
+import org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS
 
 open class BasePage {
 
-    fun checkIsDisplayed(matcher: Matcher<View>) {
-        onView(matcher).check(matches(isDisplayed()))
-    }
-
-    fun clickButtonWait(matcher: Matcher<View>) {
-        val timeOut = 5000L
+    fun checkItemIsCompletelyDisplayed(matcher: Matcher<View>) {
+        val timeOut = 10000L
         Awaitility.await()
             .atMost(timeOut, TimeUnit.MILLISECONDS)
+            .ignoreExceptions()
+            .pollInterval(ONE_HUNDRED_MILLISECONDS)
             .untilAsserted {
-                onView(matcher).perform(click())
+                onView(matcher)
+                    .check(matches(isCompletelyDisplayed()))
             }
     }
 
+    fun clickItem(matcher: Matcher<View>) {
+        checkItemIsCompletelyDisplayed(matcher)
+        onView(matcher).perform(click())
+    }
+
     fun swipeUpRecycle(matcher: Matcher<View>) {
+        val timeOut = 1000L
         onView(matcher).perform(swipeUp())
-        Thread.sleep(1000)
+        Thread.sleep(timeOut)
     }
 
     fun checkCallBrowser(matcher: Matcher<View>) {
         Intents.init()
 
-        clickButtonWait(matcher)
+        clickItem(matcher)
 
         Intents.intended(hasAction(Intent.ACTION_VIEW))
         Intents.release()

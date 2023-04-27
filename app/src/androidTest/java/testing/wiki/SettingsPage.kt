@@ -19,10 +19,10 @@ class SettingsPage : BasePage() {
 
 
     fun pressButtonCustomizeExploreFeed() =
-        clickButtonWait(matcherButtonCustomizeExploreFeed)
+        clickItem(matcherButtonCustomizeExploreFeed)
 
     fun pressButtonAboutWikipediaApp() =
-        clickButtonWait(matcherButtonAboutWikipediaApp)
+        clickItem(matcherButtonAboutWikipediaApp)
 
     fun checkCallBrowserAfterPressButtonPrivacyPolicy() =
         checkCallBrowser(matcherButtonPrivacyPolicy)

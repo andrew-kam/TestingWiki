@@ -10,11 +10,11 @@ class AboutAppPage : BasePage() {
     private val matcherAboutAppLicense = withId(R.id.about_app_license)
 
     fun checkAboutContributorsIsDisplayed() =
-        checkIsDisplayed(matcherAboutContributors)
+        checkItemIsCompletelyDisplayed(matcherAboutContributors)
 
     fun checkAboutTranslatorsIsDisplayed() =
-        checkIsDisplayed(matcherAboutTranslators)
+        checkItemIsCompletelyDisplayed(matcherAboutTranslators)
 
     fun checkAboutAboutAppLicenseIsDisplayed() =
-        checkIsDisplayed(matcherAboutAppLicense)
+        checkItemIsCompletelyDisplayed(matcherAboutAppLicense)
 }
