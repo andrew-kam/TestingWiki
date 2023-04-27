@@ -1,26 +1,19 @@
 package testing.wiki
 
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import org.hamcrest.Matchers.anyOf
 import org.wikipedia.R
 import androidx.test.espresso.matcher.ViewMatchers.withId
 
 class SettingsPage : BasePage() {
 
-    private val matcherButtonCustomizeExploreFeed = anyOf(
-        withText("Customize the Explore feed"),
-        withText("Настроить ленту")
-    )
+    private val matcherButtonCustomizeExploreFeed =
+        withText(R.string.preference_summary_customize_explore_feed)
 
-    private val matcherButtonAboutWikipediaApp = anyOf(
-        withText("About the Wikipedia app"),
-        withText("О приложении «Википедия»")
-    )
+    private val matcherButtonAboutWikipediaApp =
+        withText(R.string.about_description)
 
-    private val matcherButtonPrivacyPolicy = anyOf(
-        withText("Privacy policy"),
-        withText("Политика конфиденциальности")
-    )
+    private val matcherButtonPrivacyPolicy =
+        withText(R.string.privacy_policy_description)
 
     private val matcherRecycle = withId(R.id.recycler_view)
 
@@ -31,8 +24,8 @@ class SettingsPage : BasePage() {
     fun pressButtonAboutWikipediaApp() =
         clickButtonWait(matcherButtonAboutWikipediaApp)
 
-    fun pressButtonPrivacyPolicy() =
-        clickButtonWait(matcherButtonPrivacyPolicy)
+    fun checkCallBrowserAfterPressButtonPrivacyPolicy() =
+        checkCallBrowser(matcherButtonPrivacyPolicy)
 
     fun swipeUp() =
         swipeUpRecycle(matcherRecycle)

@@ -1,8 +1,5 @@
 package testing.wiki
 
-import android.content.Intent
-import androidx.test.espresso.intent.Intents
-import androidx.test.espresso.intent.matcher.IntentMatchers.hasAction
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Before
@@ -29,7 +26,6 @@ class WikiTest {
 
     @Test
     fun testCustomizeFeedPageAllBoxesAreChecked() {
-
         SettingsPage()
             .pressButtonCustomizeExploreFeed()
 
@@ -43,7 +39,6 @@ class WikiTest {
 
     @Test
     fun testScreenAboutApp() {
-
         SettingsPage()
             .apply {
                 swipeUp()
@@ -58,19 +53,13 @@ class WikiTest {
     }
 
     @Test
-    fun testSwitchBrowser() {
-
-        Intents.init()
-
+    fun testCallBrowser() {
         SettingsPage()
             .apply {
                 swipeUp()
-                pressButtonPrivacyPolicy()
+                checkCallBrowserAfterPressButtonPrivacyPolicy()
             }
-
-        Intents.intended(hasAction(Intent.ACTION_VIEW))
-        Intents.release()
+        BasePage()
+            .pressDeviceHome()
     }
 }
-
-//Thread.sleep(5000)
