@@ -7,7 +7,7 @@ import androidx.test.espresso.Espresso.onView
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import androidx.test.espresso.matcher.ViewMatchers.isChecked
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
 
 class CustomizeFeedPage : BasePage() {
 
@@ -15,7 +15,7 @@ class CustomizeFeedPage : BasePage() {
     private val matcherRecycle = withId(R.id.content_types_recycler)
 
     fun checkAllBoxesAreChecked() {
-        onView(allOf(matcherCheckBoxes, not(isChecked()), isDisplayed()))
+        onView(allOf(matcherCheckBoxes, not(isChecked()), isCompletelyDisplayed()))
             .check(doesNotExist())
     }
 
