@@ -19,6 +19,6 @@ class MainPage : BasePage() {
     fun pressButtonSettingsInMenuMore() =
         clickItem(matcherButtonSettingsInMenuMore)
 
-    fun pressButtonLogInWikipediaMenuMore() =
+    fun pressButtonLogInWikipediaInMenuMore() =
         clickItem(matcherButtonLogInWikipediaInMenuMore)
 }
