@@ -9,13 +9,13 @@ import org.junit.runner.RunWith
 import org.wikipedia.main.MainActivity
 
 @RunWith(AndroidJUnit4::class)
-class WikiTest {
+class SettingsTests {
 
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Before
-    fun goToSettingPage() {
+    fun goToSettingsPage() {
         MainPage()
             .apply {
                 pressButtonSkip()
