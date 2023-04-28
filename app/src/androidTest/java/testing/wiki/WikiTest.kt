@@ -47,8 +47,11 @@ class WikiTest {
             }
         AboutAppPage()
             .apply {
+                checkAboutContributorsHeadingIsDisplayed()
                 checkAboutContributorsIsDisplayed()
+                checkAboutTranslatorsHeadingIsDisplayed()
                 checkAboutTranslatorsIsDisplayed()
+                checkAboutAboutAppLicenseHeadingIsDisplayed()
                 checkAboutAboutAppLicenseIsDisplayed()
             }
     }
