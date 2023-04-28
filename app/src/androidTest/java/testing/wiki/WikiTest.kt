@@ -28,13 +28,13 @@ class WikiTest {
     fun testCustomizeFeedPageAllBoxesAreChecked() {
         SettingsPage()
             .apply {
-                pressButtonCustomizeExploreFeed()
+                pressCustomizeExploreFeed()
             }
         CustomizeFeedPage()
             .apply {
-                checkAllBoxesAreChecked()
+                checkAllCustomizeFeedBoxesAreChecked()
                 swipeUp()
-                checkAllBoxesAreChecked()
+                checkAllCustomizeFeedBoxesAreChecked()
             }
     }
 
@@ -43,7 +43,7 @@ class WikiTest {
         SettingsPage()
             .apply {
                 swipeUp()
-                pressButtonAboutWikipediaApp()
+                pressAboutWikipediaApp()
             }
         AboutAppPage()
             .apply {
@@ -58,7 +58,7 @@ class WikiTest {
         SettingsPage()
             .apply {
                 swipeUp()
-                checkCallBrowserAfterPressButtonPrivacyPolicy()
+                checkCallBrowserAfterPressPrivacyPolicy()
             }
     }
 }

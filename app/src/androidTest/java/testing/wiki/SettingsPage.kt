@@ -1,31 +1,47 @@
 package testing.wiki
 
+import android.widget.LinearLayout
+import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
+import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.wikipedia.R
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.instanceOf
 
 class SettingsPage : BasePage() {
 
-    private val matcherButtonCustomizeExploreFeed =
-        withText(R.string.preference_summary_customize_explore_feed)
+    private val matcherFieldWithCustomizeExploreFeed =
+        allOf(
+            isDescendantOfA(withId(R.id.recycler_view)),
+            instanceOf(LinearLayout::class.java),
+            hasDescendant(withText(R.string.preference_summary_customize_explore_feed))
+        )
 
-    private val matcherButtonAboutWikipediaApp =
-        withText(R.string.about_description)
+    private val matcherFieldWithAboutWikipediaApp =
+        allOf(
+            isDescendantOfA(withId(R.id.recycler_view)),
+            instanceOf(LinearLayout::class.java),
+            hasDescendant(withText(R.string.about_description))
+        )
 
-    private val matcherButtonPrivacyPolicy =
-        withText(R.string.privacy_policy_description)
+    private val matcherFieldWithPrivacyPolicy =
+        allOf(
+            isDescendantOfA(withId(R.id.recycler_view)),
+            instanceOf(LinearLayout::class.java),
+            hasDescendant(withText(R.string.privacy_policy_description))
+        )
 
     private val matcherRecycle = withId(R.id.recycler_view)
 
+    fun pressCustomizeExploreFeed() =
+        clickItem(matcherFieldWithCustomizeExploreFeed)
 
-    fun pressButtonCustomizeExploreFeed() =
-        clickItem(matcherButtonCustomizeExploreFeed)
+    fun pressAboutWikipediaApp() =
+        clickItem(matcherFieldWithAboutWikipediaApp)
 
-    fun pressButtonAboutWikipediaApp() =
-        clickItem(matcherButtonAboutWikipediaApp)
-
-    fun checkCallBrowserAfterPressButtonPrivacyPolicy() =
-        checkCallBrowser(matcherButtonPrivacyPolicy)
+    fun checkCallBrowserAfterPressPrivacyPolicy() =
+        checkCallBrowserAfterPressItem(matcherFieldWithPrivacyPolicy)
 
     fun swipeUp() =
         swipeUpRecycle(matcherRecycle)
