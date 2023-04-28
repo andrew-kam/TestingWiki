@@ -1,4 +1,4 @@
-package testing.wiki
+package testing.wiki.pages
 
 import org.wikipedia.R
 import androidx.test.espresso.matcher.ViewMatchers.withId

@@ -7,6 +7,10 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.main.MainActivity
+import testing.wiki.pages.AboutAppPage
+import testing.wiki.pages.CustomizeFeedPage
+import testing.wiki.pages.MainPage
+import testing.wiki.pages.SettingsPage
 
 @RunWith(AndroidJUnit4::class)
 class SettingsTests {

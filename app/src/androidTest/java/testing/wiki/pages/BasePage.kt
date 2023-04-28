@@ -1,4 +1,4 @@
-package testing.wiki
+package testing.wiki.pages
 
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView

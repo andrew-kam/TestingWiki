@@ -1,4 +1,4 @@
-package testing.wiki
+package testing.wiki.pages
 
 import android.widget.LinearLayout
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
