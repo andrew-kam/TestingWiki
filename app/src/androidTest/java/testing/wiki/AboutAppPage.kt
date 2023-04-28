@@ -13,21 +13,21 @@ class AboutAppPage : BasePage() {
     private val matcherAboutAppLicenseHeading = withText(R.string.about_app_license_heading)
     private val matcherAboutAppLicense = withId(R.id.about_app_license)
 
-    fun checkAboutContributorsHeadingIsDisplayed() =
+    fun checkAboutContributorsHeadingIsCompletelyDisplayed() =
         checkItemIsCompletelyDisplayed(matcherAboutContributorsHeading)
 
-    fun checkAboutContributorsIsDisplayed() =
+    fun checkAboutContributorsIsCompletelyDisplayed() =
         checkItemIsCompletelyDisplayed(matcherAboutContributors)
 
-    fun checkAboutTranslatorsHeadingIsDisplayed() =
+    fun checkAboutTranslatorsHeadingIsCompletelyDisplayed() =
         checkItemIsCompletelyDisplayed(matcherAboutTranslatorsHeading)
 
-    fun checkAboutTranslatorsIsDisplayed() =
+    fun checkAboutTranslatorsIsCompletelyDisplayed() =
         checkItemIsCompletelyDisplayed(matcherAboutTranslators)
 
-    fun checkAboutAboutAppLicenseHeadingIsDisplayed() =
+    fun checkAboutAboutAppLicenseHeadingIsCompletelyDisplayed() =
         checkItemIsCompletelyDisplayed(matcherAboutAppLicense)
 
-    fun checkAboutAboutAppLicenseIsDisplayed() =
+    fun checkAboutAboutAppLicenseIsCompletelyDisplayed() =
         checkItemIsCompletelyDisplayed(matcherAboutAppLicenseHeading)
 }
