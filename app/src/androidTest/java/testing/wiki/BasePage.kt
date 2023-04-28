@@ -49,9 +49,11 @@ open class BasePage {
 
         Intents.intended(hasAction(Intent.ACTION_VIEW))
         Intents.release()
+
+        pressDeviceHome()
     }
 
-    fun pressDeviceHome() {
+    private fun pressDeviceHome() {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         device.pressHome()
     }

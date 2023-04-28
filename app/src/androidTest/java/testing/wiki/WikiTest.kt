@@ -27,8 +27,9 @@ class WikiTest {
     @Test
     fun testCustomizeFeedPageAllBoxesAreChecked() {
         SettingsPage()
-            .pressButtonCustomizeExploreFeed()
-
+            .apply {
+                pressButtonCustomizeExploreFeed()
+            }
         CustomizeFeedPage()
             .apply {
                 checkAllBoxesAreChecked()
@@ -59,7 +60,5 @@ class WikiTest {
                 swipeUp()
                 checkCallBrowserAfterPressButtonPrivacyPolicy()
             }
-        BasePage()
-            .pressDeviceHome()
     }
 }
