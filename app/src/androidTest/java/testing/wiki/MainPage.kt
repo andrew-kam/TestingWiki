@@ -8,7 +8,7 @@ class MainPage : BasePage() {
     private val matcherButtonSkip = withId(R.id.fragment_onboarding_skip_button)
     private val matcherButtonMenuMore = withId(R.id.nav_more_container)
     private val matcherButtonSettingsInMenuMore = withId(R.id.main_drawer_settings_container)
-    private val matcherButtonLogInWikipediaMenuMore = withId(R.id.main_drawer_account_container)
+    private val matcherButtonLogInWikipediaInMenuMore = withId(R.id.main_drawer_account_container)
 
     fun pressButtonSkip() =
         clickItem(matcherButtonSkip)
@@ -20,5 +20,5 @@ class MainPage : BasePage() {
         clickItem(matcherButtonSettingsInMenuMore)
 
     fun pressButtonLogInWikipediaMenuMore() =
-        clickItem(matcherButtonLogInWikipediaMenuMore)
+        clickItem(matcherButtonLogInWikipediaInMenuMore)
 }
