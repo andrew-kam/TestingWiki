@@ -15,7 +15,6 @@ class CreateAccountTest {
 
     private val passWord = "pass56"
     private val passWordTransform = LogInPage().transformPassword(passWord)
-
     private val userName = "name"
 
     @get:Rule
@@ -46,12 +45,13 @@ class CreateAccountTest {
 
     @Test
     fun testEnteredPasswordLength() {
-
-        LogInPage().typeTextUsername(userName)
-        LogInPage().typeTextPassword(passWord)
-        LogInPage().pressButtonNext()
-        LogInPage().checkCreateAccountPasswordErrorIsCompletelyDisplayed()
-        LogInPage().checkCreateAccountPasswordErrorColorRed()
-
+        LogInPage()
+            .apply {
+                typeTextUsername(userName)
+                typeTextPassword(passWord)
+                pressButtonNext()
+                checkCreateAccountPasswordErrorIsCompletelyDisplayed()
+                checkCreateAccountPasswordErrorColorRed()
+            }
     }
 }

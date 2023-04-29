@@ -20,33 +20,38 @@ import org.wikipedia.views.PlainPasteEditText
 
 class LogInPage : BasePage() {
 
-    private val matcherInputCreateAccountUsername = allOf(
-        instanceOf((PlainPasteEditText::class.java)),
-        isDescendantOfA(withId(R.id.create_account_username))
-    )
+    private val matcherInputCreateAccountUsername =
+        allOf(
+            instanceOf((PlainPasteEditText::class.java)),
+            isDescendantOfA(withId(R.id.create_account_username))
+        )
 
-    private val matcherInputCreateAccountPassword = allOf(
-        instanceOf((PlainPasteEditText::class.java)),
-        isDescendantOfA(withId(R.id.create_account_password_input))
-    )
+    private val matcherInputCreateAccountPassword =
+        allOf(
+            instanceOf((PlainPasteEditText::class.java)),
+            isDescendantOfA(withId(R.id.create_account_password_input))
+        )
 
     private val matcherButtonNext =
         withId(R.id.create_account_submit_button)
 
-    private val matcherIconEyePassword = allOf(
-        withId(com.google.android.material.R.id.text_input_end_icon),
-        isDescendantOfA(withId(R.id.create_account_password_input))
-    )
+    private val matcherIconEyePassword =
+        allOf(
+            withId(com.google.android.material.R.id.text_input_end_icon),
+            isDescendantOfA(withId(R.id.create_account_password_input))
+        )
 
     private val matcherCreateAccountPasswordError =
         withText(R.string.create_account_password_error)
 
-
-    private val colorRedLightTheme = R.color.red700
-    private val colorRedDarkTheme = R.color.red500
-    private val matcherColorsRed = anyOf(
-        hasTextColor(colorRedLightTheme), hasTextColor(colorRedDarkTheme)
-    )
+    private val colorRedLightTheme =
+        R.color.red700
+    private val colorRedDarkTheme =
+        R.color.red500
+    private val matcherColorsRed =
+        anyOf(
+            hasTextColor(colorRedLightTheme), hasTextColor(colorRedDarkTheme)
+        )
 
     fun typeTextUsername(text: String) =
         typeTextInField(matcherInputCreateAccountUsername, text)
@@ -66,9 +71,8 @@ class LogInPage : BasePage() {
     fun transformPassword(passWord: String) =
         PasswordTransformationMethod.getInstance().getTransformation(passWord, null).toString()
 
-    fun checkEnteredPasswordHasTransformationMethod() {
+    fun checkEnteredPasswordHasTransformationMethod() =
         checkTextHasTransformationMethod(matcherInputCreateAccountPassword)
-    }
 
     fun checkCreateAccountPasswordErrorIsCompletelyDisplayed() =
         checkItemIsCompletelyDisplayed(matcherCreateAccountPasswordError)
