@@ -36,22 +36,11 @@ open class BasePage {
             }
     }
 
-    protected fun clickItem(matcher: Matcher<View>) {
-        checkItemIsClickable(matcher)
-        onView(matcher).perform(click())
-    }
-
     protected fun checkAllBoxesAreChecked(matcher: Matcher<View>) {
         onView(
             allOf(matcher, not(isChecked()), isCompletelyDisplayed())
         )
             .check(doesNotExist())
-    }
-
-    protected fun swipeUpRecycle(matcher: Matcher<View>) {
-        val timeOut = 1000L
-        onView(matcher).perform(swipeUp())
-        Thread.sleep(timeOut)
     }
 
     protected fun checkCallBrowserAfterPressItem(matcher: Matcher<View>) {
@@ -65,9 +54,26 @@ open class BasePage {
         pressDeviceHome()
     }
 
+    protected fun checkItemColor(matcher: Matcher<View>, matcherColor: Matcher<View>) {
+        onView(matcher).check(matches(matcherColor))
+    }
+
+
+    protected fun clickItem(matcher: Matcher<View>) {
+        checkItemIsClickable(matcher)
+        onView(matcher).perform(click())
+    }
+
+    protected fun swipeUpRecycle(matcher: Matcher<View>) {
+        val timeOut = 1000L
+        onView(matcher).perform(swipeUp())
+        Thread.sleep(timeOut)
+    }
+
     protected fun typeTextInField(matcher: Matcher<View>, text: String) {
         onView(matcher).perform(typeText(text))
     }
+
 
     private fun checkItemIsClickable(matcher: Matcher<View>) {
         val timeOut = 5000L
