@@ -13,6 +13,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import android.view.View
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isChecked
 import androidx.test.espresso.matcher.ViewMatchers.isClickable
 import org.hamcrest.Matcher
@@ -56,6 +57,10 @@ open class BasePage {
 
     protected fun checkItemColor(matcher: Matcher<View>, matcherColor: Matcher<View>) {
         onView(matcher).check(matches(matcherColor))
+    }
+
+    fun checkItemText(matcher: Matcher<View>, text: String) {
+        onView(matcher).check(matches(ViewMatchers.withText(text)))
     }
 
 

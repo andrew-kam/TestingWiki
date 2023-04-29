@@ -11,9 +11,10 @@ import testing.wiki.pages.LogInPage
 import testing.wiki.pages.MainPage
 
 @RunWith(AndroidJUnit4::class)
-class LogInTest {
+class CreateAccountTest {
 
-    private val passWord = "pass"
+    private val passWord = "pass56"
+    private val passWordTransform = "•".repeat(passWord.length)
     private val userName = "name"
 
     @get:Rule
@@ -30,24 +31,26 @@ class LogInTest {
     }
 
     @Test
-    fun testLogInEyePassword() {
-        LogInPage().typePasteEditTextPassword(passWord)
-        Thread.sleep(3000)
-        LogInPage().pressIconEyePassword()
-        Thread.sleep(3000)
-        LogInPage().pressIconEyePassword()
-        Thread.sleep(3000)
+    fun testPasswordVisibilitySwitching() {
+        LogInPage()
+            .apply {
+                typeTextPassword(passWord)
+                pressIconEyePassword()
+                checkEnteredPassword(passWord)
+                pressIconEyePassword()
+                checkEnteredPassword(passWordTransform)
+                checkEnteredPasswordHasTransformationMethod()
+            }
     }
 
     @Test
-    fun testLogInLengthUsername() {
+    fun testEnteredPasswordLength() {
 
-        LogInPage().typePasteEditTextUsername(userName)
-        LogInPage().typePasteEditTextPassword(passWord)
+        LogInPage().typeTextUsername(userName)
+        LogInPage().typeTextPassword(passWord)
         LogInPage().pressButtonNext()
         LogInPage().checkCreateAccountPasswordErrorIsCompletelyDisplayed()
         LogInPage().checkCreateAccountPasswordErrorColorRed()
-//        LogInPage().checkHintPasswordIsCompletelyDisplayed()
+
     }
 }
-
