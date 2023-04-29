@@ -20,12 +20,12 @@ class LogInTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Before
-    fun goToSettingPage() {
+    fun goToLoginPage() {
         MainPage()
             .apply {
                 pressButtonSkip()
                 pressButtonMenuMore()
-                pressButtonLogInWikipediaMenuMore()
+                pressButtonLogInWikipediaInMenuMore()
             }
     }
 
@@ -41,10 +41,13 @@ class LogInTest {
 
     @Test
     fun testLogInLengthUsername() {
+
         LogInPage().typePasteEditTextUsername(userName)
         LogInPage().typePasteEditTextPassword(passWord)
         LogInPage().pressButtonNext()
-        Thread.sleep(5000)
+        LogInPage().checkCreateAccountPasswordErrorIsCompletelyDisplayed()
+        LogInPage().checkCreateAccountPasswordErrorColorRed()
+//        LogInPage().checkHintPasswordIsCompletelyDisplayed()
     }
 }
 
