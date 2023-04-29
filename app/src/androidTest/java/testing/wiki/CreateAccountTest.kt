@@ -14,7 +14,8 @@ import testing.wiki.pages.MainPage
 class CreateAccountTest {
 
     private val passWord = "pass56"
-    private val passWordTransform = "•".repeat(passWord.length)
+    private val passWordTransform = LogInPage().transformPassword(passWord)
+
     private val userName = "name"
 
     @get:Rule

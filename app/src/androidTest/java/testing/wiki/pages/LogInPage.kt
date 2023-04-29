@@ -63,6 +63,9 @@ class LogInPage : BasePage() {
     fun checkEnteredPassword(passWord: String) =
         checkItemText(matcherInputCreateAccountPassword, passWord)
 
+    fun transformPassword(passWord: String) =
+        PasswordTransformationMethod.getInstance().getTransformation(passWord, null).toString()
+
     fun checkEnteredPasswordHasTransformationMethod() {
         checkTextHasTransformationMethod(matcherInputCreateAccountPassword)
     }
