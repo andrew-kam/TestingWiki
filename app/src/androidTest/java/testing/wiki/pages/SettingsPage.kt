@@ -32,7 +32,8 @@ class SettingsPage : BasePage() {
             hasDescendant(withText(R.string.privacy_policy_description))
         )
 
-    private val matcherRecycle = withId(R.id.recycler_view)
+    private val matcherRecycle =
+        withId(R.id.recycler_view)
 
     fun pressCustomizeExploreFeed() =
         clickItem(matcherFieldWithCustomizeExploreFeed)

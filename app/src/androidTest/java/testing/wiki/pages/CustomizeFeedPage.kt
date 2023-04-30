@@ -10,8 +10,11 @@ import org.junit.Assert.assertTrue
 
 class CustomizeFeedPage : BasePage() {
 
-    private val bySelectorCheckBox = "org.wikipedia.alpha:id/feed_content_type_checkbox"
-    private val matcherRecycle = withId(R.id.content_types_recycler)
+    private val bySelectorCheckBox =
+        "org.wikipedia.alpha:id/feed_content_type_checkbox"
+
+    private val matcherRecycle =
+        withId(R.id.content_types_recycler)
 
     fun checkAllCustomizeFeedBoxesAreChecked() {
         val timeOut = 3000L
