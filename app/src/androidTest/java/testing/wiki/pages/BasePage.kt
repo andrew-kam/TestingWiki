@@ -12,8 +12,8 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import android.view.View
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isClickable
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matcher
 import org.awaitility.Awaitility
 import java.util.concurrent.TimeUnit
@@ -45,11 +45,13 @@ open class BasePage {
     }
 
     protected fun checkItemColor(matcher: Matcher<View>, matcherColor: Matcher<View>) {
+        checkItemIsCompletelyDisplayed(matcher)
         onView(matcher).check(matches(matcherColor))
     }
 
     protected fun checkItemText(matcher: Matcher<View>, text: String) {
-        onView(matcher).check(matches(ViewMatchers.withText(text)))
+        checkItemIsCompletelyDisplayed(matcher)
+        onView(matcher).check(matches(withText(text)))
     }
 
 
@@ -60,11 +62,13 @@ open class BasePage {
 
     protected fun swipeUpRecycle(matcher: Matcher<View>) {
         val timeOut = 1000L
+        checkItemIsCompletelyDisplayed(matcher)
         onView(matcher).perform(swipeUp())
         Thread.sleep(timeOut)
     }
 
     protected fun typeTextInField(matcher: Matcher<View>, text: String) {
+        checkItemIsCompletelyDisplayed(matcher)
         onView(matcher).perform(typeText(text))
     }
 
