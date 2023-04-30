@@ -48,7 +48,7 @@ open class BasePage {
         onView(matcher).check(matches(matcherColor))
     }
 
-    fun checkItemText(matcher: Matcher<View>, text: String) {
+    protected fun checkItemText(matcher: Matcher<View>, text: String) {
         onView(matcher).check(matches(ViewMatchers.withText(text)))
     }
 
