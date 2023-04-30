@@ -14,7 +14,6 @@ import testing.wiki.pages.MainPage
 class CreateAccountTest {
 
     private val passWord = "pass56"
-    private val passWordTransform = LogInPage().transformPassword(passWord)
     private val userName = "name"
 
     @get:Rule
@@ -38,8 +37,7 @@ class CreateAccountTest {
                 pressIconEyePassword()
                 checkEnteredPassword(passWord)
                 pressIconEyePassword()
-                checkEnteredPassword(passWordTransform)
-                checkEnteredPasswordHasTransformationMethod()
+                checkEnteredPassword(transformPassword(passWord))
             }
     }
 
