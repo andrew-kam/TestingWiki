@@ -12,16 +12,12 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import android.view.View
-import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.isChecked
 import androidx.test.espresso.matcher.ViewMatchers.isClickable
 import org.hamcrest.Matcher
 import org.awaitility.Awaitility
 import java.util.concurrent.TimeUnit
 import org.awaitility.Durations.ONE_HUNDRED_MILLISECONDS
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.not
 
 open class BasePage {
 
@@ -35,13 +31,6 @@ open class BasePage {
                 onView(matcher)
                     .check(matches(isCompletelyDisplayed()))
             }
-    }
-
-    protected fun checkAllBoxesAreChecked(matcher: Matcher<View>) {
-        onView(
-            allOf(matcher, not(isChecked()), isCompletelyDisplayed())
-        )
-            .check(doesNotExist())
     }
 
     protected fun checkCallBrowserAfterPressItem(matcher: Matcher<View>) {
