@@ -12,6 +12,8 @@ import testing.wiki.pages.CustomizeFeedPage
 import testing.wiki.pages.MainPage
 import testing.wiki.pages.SettingsPage
 
+// На устройстве для запуска тестов, анимация должна быть отключена!!!
+
 @RunWith(AndroidJUnit4::class)
 class SettingsTests {
 
