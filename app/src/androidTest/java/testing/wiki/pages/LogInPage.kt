@@ -12,7 +12,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matcher
 import org.wikipedia.R
 import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.anyOf
 import org.hamcrest.Matchers.instanceOf
 import org.wikipedia.views.PlainPasteEditText
 
@@ -42,14 +41,8 @@ class LogInPage {
     private val matcherCreateAccountPasswordError =
         withText(R.string.create_account_password_error)
 
-    private val redColorLightTheme =
-        R.color.red700
-    private val redColorDarkTheme =
-        R.color.red500
-    private val matcherRedColors =
-        anyOf(
-            hasTextColor(redColorLightTheme), hasTextColor(redColorDarkTheme)
-        )
+    private val matcherRedColorLightTheme =
+        hasTextColor(R.color.red700)
 
     private fun typeTextInField(matcher: Matcher<View>, text: String) {
         GeneralPageFunctions().checkItemIsClickable(matcher)
@@ -80,6 +73,6 @@ class LogInPage {
         GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherCreateAccountPasswordError)
 
     fun checkCreateAccountPasswordErrorColorRed() {
-        onView(matcherCreateAccountPasswordError).check(matches(matcherRedColors))
+        onView(matcherCreateAccountPasswordError).check(matches(matcherRedColorLightTheme))
     }
 }
