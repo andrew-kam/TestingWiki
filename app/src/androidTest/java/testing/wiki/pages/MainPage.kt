@@ -3,7 +3,7 @@ package testing.wiki.pages
 import org.wikipedia.R
 import androidx.test.espresso.matcher.ViewMatchers.withId
 
-class MainPage : BasePage() {
+class MainPage {
 
     private val matcherButtonSkip =
         withId(R.id.fragment_onboarding_skip_button)
@@ -18,16 +18,16 @@ class MainPage : BasePage() {
         withId(R.id.main_drawer_account_container)
 
     private fun pressButtonSkip() =
-        clickItem(matcherButtonSkip)
+        GeneralPageFunctions().clickItem(matcherButtonSkip)
 
     private fun pressButtonMenuMore() =
-        clickItem(matcherButtonMenuMore)
+        GeneralPageFunctions().clickItem(matcherButtonMenuMore)
 
     private fun pressButtonSettingsInMenuMore() =
-        clickItem(matcherButtonSettingsInMenuMore)
+        GeneralPageFunctions().clickItem(matcherButtonSettingsInMenuMore)
 
     private fun pressButtonLogInWikipediaInMenuMore() =
-        clickItem(matcherButtonLogInWikipediaInMenuMore)
+        GeneralPageFunctions().clickItem(matcherButtonLogInWikipediaInMenuMore)
 
     fun goToSettingsPage() {
         pressButtonSkip()

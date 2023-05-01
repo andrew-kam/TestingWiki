@@ -8,7 +8,9 @@ import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.Until
 import org.junit.Assert.assertTrue
 
-class CustomizeFeedPage : BasePage() {
+class CustomizeFeedPage {
+
+    private val timeOut = 3000L
 
     private val selectorCheckBox =
         "org.wikipedia.alpha:id/feed_content_type_checkbox"
@@ -17,11 +19,9 @@ class CustomizeFeedPage : BasePage() {
         withId(R.id.content_types_recycler)
 
     fun checkAllCustomizeFeedBoxesAreChecked() {
-        val timeOut = 3000L
         val uiDevice = UiDevice.getInstance(getInstrumentation())
 
         uiDevice.wait(Until.findObjects(By.res(selectorCheckBox)), timeOut)
-
         uiDevice.findObjects(By.res(selectorCheckBox))
             .forEach {
                 assertTrue("Check-box isn`t checked!", it.isChecked)
@@ -29,5 +29,5 @@ class CustomizeFeedPage : BasePage() {
     }
 
     fun swipeUp() =
-        swipeUpRecycle(matcherRecycle)
+        GeneralPageFunctions().swipeUpRecycle(matcherRecycle)
 }

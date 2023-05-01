@@ -1,17 +1,22 @@
 package testing.wiki.pages
 
 import android.text.method.PasswordTransformationMethod
+import android.view.View
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.hasTextColor
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import org.hamcrest.Matcher
 import org.wikipedia.R
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.anyOf
 import org.hamcrest.Matchers.instanceOf
 import org.wikipedia.views.PlainPasteEditText
 
-class LogInPage : BasePage() {
+class LogInPage {
 
     private val matcherInputCreateAccountUsername =
         allOf(
@@ -46,6 +51,11 @@ class LogInPage : BasePage() {
             hasTextColor(redColorLightTheme), hasTextColor(redColorDarkTheme)
         )
 
+    private fun typeTextInField(matcher: Matcher<View>, text: String) {
+        GeneralPageFunctions().checkItemIsClickable(matcher)
+        onView(matcher).perform(typeText(text))
+    }
+
     fun typeTextUsername(text: String) =
         typeTextInField(matcherInputCreateAccountUsername, text)
 
@@ -53,20 +63,23 @@ class LogInPage : BasePage() {
         typeTextInField(matcherInputCreateAccountPassword, text)
 
     fun pressIconEyePassword() =
-        clickItem(matcherIconEyePassword)
+        GeneralPageFunctions().clickItem(matcherIconEyePassword)
 
     fun pressButtonNext() =
-        clickItem(matcherButtonNext)
+        GeneralPageFunctions().clickItem(matcherButtonNext)
 
-    fun checkEnteredPassword(passWord: String) =
-        checkItemText(matcherInputCreateAccountPassword, passWord)
+    fun checkEnteredPassword(passWord: String) {
+        GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherInputCreateAccountPassword)
+        onView(matcherInputCreateAccountPassword).check(matches(withText(passWord)))
+    }
 
     fun transformPassword(passWord: String) =
         PasswordTransformationMethod.getInstance().getTransformation(passWord, null).toString()
 
     fun checkCreateAccountPasswordErrorIsCompletelyDisplayed() =
-        checkItemIsCompletelyDisplayed(matcherCreateAccountPasswordError)
+        GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherCreateAccountPasswordError)
 
-    fun checkCreateAccountPasswordErrorColorRed() =
-        checkItemColor(matcherCreateAccountPasswordError, matcherRedColors)
+    fun checkCreateAccountPasswordErrorColorRed() {
+        onView(matcherCreateAccountPasswordError).check(matches(matcherRedColors))
+    }
 }

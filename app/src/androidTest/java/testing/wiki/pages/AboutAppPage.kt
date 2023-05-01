@@ -4,7 +4,7 @@ import org.wikipedia.R
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 
-class AboutAppPage : BasePage() {
+class AboutAppPage {
 
     private val matcherAboutContributorsHeading =
         withText(R.string.about_contributors_heading)
@@ -25,20 +25,20 @@ class AboutAppPage : BasePage() {
         withId(R.id.about_app_license)
 
     fun checkAboutContributorsHeadingIsCompletelyDisplayed() =
-        checkItemIsCompletelyDisplayed(matcherAboutContributorsHeading)
+        GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherAboutContributorsHeading)
 
     fun checkAboutContributorsIsCompletelyDisplayed() =
-        checkItemIsCompletelyDisplayed(matcherAboutContributors)
+        GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherAboutContributors)
 
     fun checkAboutTranslatorsHeadingIsCompletelyDisplayed() =
-        checkItemIsCompletelyDisplayed(matcherAboutTranslatorsHeading)
+        GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherAboutTranslatorsHeading)
 
     fun checkAboutTranslatorsIsCompletelyDisplayed() =
-        checkItemIsCompletelyDisplayed(matcherAboutTranslators)
+        GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherAboutTranslators)
 
     fun checkAboutAboutAppLicenseHeadingIsCompletelyDisplayed() =
-        checkItemIsCompletelyDisplayed(matcherAboutAppLicense)
+        GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherAboutAppLicense)
 
     fun checkAboutAboutAppLicenseIsCompletelyDisplayed() =
-        checkItemIsCompletelyDisplayed(matcherAboutAppLicenseHeading)
+        GeneralPageFunctions().checkItemIsCompletelyDisplayed(matcherAboutAppLicenseHeading)
 }

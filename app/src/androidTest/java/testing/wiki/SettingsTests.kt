@@ -40,7 +40,6 @@ class SettingsTests {
     fun testScreenAboutApp() {
         SettingsPage()
             .apply {
-                swipeUp()
                 pressAboutWikipediaApp()
             }
         AboutAppPage()
@@ -58,7 +57,6 @@ class SettingsTests {
     fun testCallBrowser() {
         SettingsPage()
             .apply {
-                swipeUp()
                 checkCallBrowserAfterPressPrivacyPolicy()
             }
     }
