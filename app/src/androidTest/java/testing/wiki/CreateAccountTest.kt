@@ -35,6 +35,8 @@ class CreateAccountTest {
             }
     }
 
+// На устройстве для запуска теста должна быть выбрана светлая тема!!!
+
     @Test
     fun testEnteredPasswordLength() {
         LogInPage()
