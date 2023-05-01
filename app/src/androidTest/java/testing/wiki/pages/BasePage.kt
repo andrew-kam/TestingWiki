@@ -68,7 +68,7 @@ open class BasePage {
     }
 
     protected fun typeTextInField(matcher: Matcher<View>, text: String) {
-        checkItemIsCompletelyDisplayed(matcher)
+        checkItemIsClickable(matcher)
         onView(matcher).perform(typeText(text))
     }
 

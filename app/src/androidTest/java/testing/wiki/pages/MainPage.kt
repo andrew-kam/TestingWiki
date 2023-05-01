@@ -17,15 +17,27 @@ class MainPage : BasePage() {
     private val matcherButtonLogInWikipediaInMenuMore =
         withId(R.id.main_drawer_account_container)
 
-    fun pressButtonSkip() =
+    private fun pressButtonSkip() =
         clickItem(matcherButtonSkip)
 
-    fun pressButtonMenuMore() =
+    private fun pressButtonMenuMore() =
         clickItem(matcherButtonMenuMore)
 
-    fun pressButtonSettingsInMenuMore() =
+    private fun pressButtonSettingsInMenuMore() =
         clickItem(matcherButtonSettingsInMenuMore)
 
-    fun pressButtonLogInWikipediaInMenuMore() =
+    private fun pressButtonLogInWikipediaInMenuMore() =
         clickItem(matcherButtonLogInWikipediaInMenuMore)
+
+    fun goToSettingsPage() {
+        pressButtonSkip()
+        pressButtonMenuMore()
+        pressButtonSettingsInMenuMore()
+    }
+
+    fun goToLoginPage() {
+        pressButtonSkip()
+        pressButtonMenuMore()
+        pressButtonLogInWikipediaInMenuMore()
+    }
 }

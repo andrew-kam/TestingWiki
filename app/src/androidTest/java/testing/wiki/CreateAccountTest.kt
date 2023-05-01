@@ -20,14 +20,8 @@ class CreateAccountTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Before
-    fun goToLoginPage() {
-        MainPage()
-            .apply {
-                pressButtonSkip()
-                pressButtonMenuMore()
-                pressButtonLogInWikipediaInMenuMore()
-            }
-    }
+    fun openLoginPage() =
+        MainPage().goToLoginPage()
 
     @Test
     fun testPasswordVisibilitySwitching() {

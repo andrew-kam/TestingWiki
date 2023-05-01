@@ -19,14 +19,8 @@ class SettingsTests {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Before
-    fun goToSettingsPage() {
-        MainPage()
-            .apply {
-                pressButtonSkip()
-                pressButtonMenuMore()
-                pressButtonSettingsInMenuMore()
-            }
-    }
+    fun openSettingsPage() =
+        MainPage().goToSettingsPage()
 
     @Test
     fun testCustomizeFeedPageAllBoxesAreChecked() {

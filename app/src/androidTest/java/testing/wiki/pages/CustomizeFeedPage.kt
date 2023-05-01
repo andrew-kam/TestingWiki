@@ -10,7 +10,7 @@ import org.junit.Assert.assertTrue
 
 class CustomizeFeedPage : BasePage() {
 
-    private val bySelectorCheckBox =
+    private val selectorCheckBox =
         "org.wikipedia.alpha:id/feed_content_type_checkbox"
 
     private val matcherRecycle =
@@ -20,9 +20,9 @@ class CustomizeFeedPage : BasePage() {
         val timeOut = 3000L
         val uiDevice = UiDevice.getInstance(getInstrumentation())
 
-        uiDevice.wait(Until.findObjects(By.res(bySelectorCheckBox)), timeOut)
+        uiDevice.wait(Until.findObjects(By.res(selectorCheckBox)), timeOut)
 
-        uiDevice.findObjects(By.res(bySelectorCheckBox))
+        uiDevice.findObjects(By.res(selectorCheckBox))
             .forEach {
                 assertTrue("Check-box isn`t checked!", it.isChecked)
             }
